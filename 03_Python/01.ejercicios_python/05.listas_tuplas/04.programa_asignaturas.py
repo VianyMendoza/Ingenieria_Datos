@@ -29,7 +29,7 @@ def calificar(lista_asignaturas):
         print(f"    *En {materia} obtuviste: {nota}.")
 
     promedio = sum(calificacion) / len(calificacion)
-    print(f"Tu promedio es  de {promedio}")
+    print(f"Tu promedio es  de {round(promedio,2)}")
     
     return calificacion
 
@@ -38,10 +38,9 @@ def reprobadas(lista_asignaturas, lista_calificaciones):
     Esta función muestra las materias a recursar
     """
     dict_evaluacion = dict(zip(lista_asignaturas, lista_calificaciones))
-    print(dict_evaluacion)
 
     aprobadas = {y: x for y, x in dict_evaluacion.items() if x >= 6}
-    reprobadas = {y: x for y, x in dict_evaluacion.items() if x <= 6}
+    reprobadas = {y: x for y, x in dict_evaluacion.items() if x < 6}
 
     print(f"Materias aprobadas:")
     for aprobada in aprobadas:
